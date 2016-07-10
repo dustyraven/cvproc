@@ -49,9 +49,13 @@ class Template {
 	}
 
 
-	public function set($key, $val)
+	public function set($key, $val = false)
 	{
-		$this->vars->$key = $val;
+		if( !$val && (is_array($key) || is_object($key)) )
+			foreach($key as $k => $v)
+				$this->set($k, $v);
+		else
+			$this->vars->$key = $val;
 
 		return $this;
 	}

@@ -1,18 +1,15 @@
 <?php
 
-require_once getcwd().'/include/common.php';
-
-$id = Util::requestVar('id');
-
-if(!$id)
-	throw new Exception('Error Processing Request', 1);
-
-$cv = new CV($id);
-
-
-
+/**
+ *	custom functions to add rows to CV table
+ *	WARN! - function could be defined in other controlers too
+ */
 function addCVrow($key = false, $val = false)
 {
+	// early return if empty field
+	if($key && empty($val) && false !== $val)
+		return '';
+
 	if(!$key)
 		$key = '&nbsp;';
 
@@ -26,6 +23,37 @@ function addCVrow($key = false, $val = false)
 	return $row;
 }
 
+
+function CVdate($date)
+{
+	if(empty($date))
+		return 'present';
+
+	$date = (object)date_parse($date);
+
+	$year	= $date->year;
+	$day	= (1 == $date->day) ? '' : '-'.str_pad($date->day, 2, '0', STR_PAD_LEFT);
+	$month	= (1 == $date->month  && 1 == $date->day) ? '' : '-'.str_pad($date->month, 2, '0', STR_PAD_LEFT);
+
+	return $year.$month.$day;
+}
+
+
+// End of custom functions
+
+
+
+
+require_once getcwd().'/include/common.php';
+
+$id = Util::requestVar('id');
+
+if(!$id)
+	throw new Exception('Error Processing Request', 1);
+
+$cv = new CV($id);
+
+
 $rows = '';
 
 $rows .= addCVrow('PERSONAL INFORMATION').
@@ -35,9 +63,8 @@ $rows .= addCVrow('PERSONAL INFORMATION').
 		 addCVrow('Phone', $cv->user->phone) .
 		 addCVrow('E-mail', $cv->user->email) .
 		 addCVrow('Skype', $cv->user->skype) .
-		 addCVrow('E-mail', $cv->user->email) .
 		 addCVrow('Nationality', $cv->user->nationality) .
-		 addCVrow('Date of birth', $cv->user->birthday) .
+		 addCVrow('Date of birth', CVdate($cv->user->birthday)) .
 		 addCVrow();
 
 $rows .= addCVrow('EMPLOYMENT HISTORY').
@@ -45,7 +72,7 @@ $rows .= addCVrow('EMPLOYMENT HISTORY').
 
 foreach($cv->employments as $e)
 	$rows .=
-		addCVrow('Dates (from-tо)', $e->date_from . ' - ' . $e->date_to).
+		addCVrow('Dates (from-tо)', CVdate($e->date_from) . ' - ' . CVdate($e->date_to)).
 		addCVrow('Employer', $e->employer).
 		addCVrow('Position', $e->position).
 		addCVrow('Types of activity', $e->activity).
@@ -56,17 +83,19 @@ $rows .= addCVrow('EDUCATION').
 
 foreach($cv->educations as $e)
 	$rows .=
-		addCVrow('Dates (from-tо)', $e->date_from . ' - ' . $e->date_to).
+		addCVrow('Dates (from-tо)', CVdate($e->date_from) . ' - ' . CVdate($e->date_to)).
 		addCVrow('Educational facility', $e->facility).
 		addCVrow('Main professional skills', $e->skills).
 		addCVrow('Qualification title', $e->qualification).
 		addCVrow();
 
 
+$rows .= addCVrow('LinkedIn', $cv->user->linkedin).
+		 addCVrow('Driving license', $cv->user->driving_license ? 'Yes' : 'No')
+		 ;
 
 
-//[linkedin] => https://bg.linkedin.com/in/danieldenev
-//[driving_license] => 1
+
 
 $content = (new Template('cv'))
 			->set('name', $cv->user->name)
@@ -84,7 +113,7 @@ header('Content-Type: text/html; charset=UTF-8');
 $tpl->flush();
 
 /*
+Util::p($cv);
 */
 
-Util::p($cv);
 

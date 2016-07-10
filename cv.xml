@@ -1,0 +1,131 @@
+<cv>
+	<name>Daniel Sabev Denev</name>
+	<address>Patriarh Evtimii blvd., Sofia, Bulgaria</address>
+	<phone>+359 878 510 454</phone>
+	<email>dusty@gbg.bg</email>
+	<nationality>Bulgarian</nationality>
+	<birthday>1974-10-13</birthday>
+
+	<skype>dusty_raven</skype>
+	<linkedin>https://bg.linkedin.com/in/danieldenev</linkedin>
+	<driving_license>1</driving_license>
+
+
+	<employments>
+
+		<employment>
+			<date_from>2012</date_from>
+			<date_to></date_to>
+			<employer>Opencode Systems Ltd.</employer>
+			<position>R&amp;D Engineer</position>
+			<activity>Developing tools for processing large amounts of data and statistics.</activity>
+		</employment>
+
+		<employment>
+			<date_from>2008</date_from>
+			<date_to>2012</date_to>
+			<employer>Sexwell EOOD</employer>
+			<position>CTO</position>
+			<activity>
+				Managing the IT department
+				Creating and managing the company web sites
+				Creating and developing the intra-company CRM/ERP system
+			</activity>
+		</employment>
+
+		<employment>
+			<date_from>2007</date_from>
+			<date_to>2008</date_to>
+			<employer>StangaOne</employer>
+			<position>PHP &amp; MySQL developer</position>
+			<activity>Working on various company projects</activity>
+		</employment>
+
+		<employment>
+			<date_from>2004</date_from>
+			<date_to>2007</date_to>
+			<employer>Self-employed</employer>
+			<position>WEB developer</position>
+			<activity>Creating and developing web sites for a vast range of clients</activity>
+		</employment>
+
+		<employment>
+			<date_from>2003</date_from>
+			<date_to>2004</date_to>
+			<employer>Balkan restaurant, Quality Inn Horizon Hotel, Dubai, U.A.E.</employer>
+			<position>Musician</position>
+			<activity>Musician</activity>
+		</employment>
+
+		<employment>
+			<date_from>2001</date_from>
+			<date_to>2003</date_to>
+			<employer>Supporting Victims of Crimes and Combating Corruption Foundation</employer>
+			<position>Project coordinator</position>
+			<activity></activity>
+		</employment>
+
+		<employment>
+			<date_from>1993</date_from>
+			<date_to>2001</date_to>
+			<employer>Self-employed</employer>
+			<position>Musician, tone producer</position>
+			<activity>
+				Establishment of a music production and arrangement demo-studio;
+				Performing at clubs with a number of bands
+			</activity>
+		</employment>
+
+		<employment>
+			<date_from>1990</date_from>
+			<date_to>1993</date_to>
+			<employer>Club 113+, Sofia</employer>
+			<position>Tone producer</position>
+			<activity></activity>
+		</employment>
+
+	</employments>
+
+
+
+	<educations>
+
+		<education>
+			<date_from>1988</date_from>
+			<date_to>1992</date_to>
+			<facility>Vocation college A.S. Popov</facility>
+			<skills>Electro-technician</skills>
+			<qualification>High school</qualification>
+		</education>
+
+	</educations>
+
+	<languages>
+		<language>English</language>
+		<language>Russian</language>
+	</languages>
+
+
+	<skills>
+		<skill>PHP</skill>
+		<skill>MySQL</skill>
+		<skill>Firebird</skill>
+		<skill>SQLite</skill>
+		<skill>HTML</skill>
+		<skill>CSS</skill>
+		<skill>JavaScript</skill>
+		<skill>Apache</skill>
+		<skill>Nginx</skill>
+		<skill>SVN</skill>
+		<skill>GIT</skill>
+		<skill>SEO</skill>
+		<skill>UX</skill>
+		<skill>DOS</skill>
+		<skill>Linux</skill>
+		<skill>Windows</skill>
+		<skill>Office</skill>
+		<skill>Photoshop</skill>
+		<skill>CorelDraw</skill>
+	</skills>
+
+</cv>
