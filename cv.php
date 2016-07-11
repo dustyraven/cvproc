@@ -112,8 +112,5 @@ $tpl = (new Template('main'))
 header('Content-Type: text/html; charset=UTF-8');
 $tpl->flush();
 
-/*
-Util::p($cv);
-*/
 
 

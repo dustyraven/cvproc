@@ -1,7 +1,12 @@
 <?php
 
 require_once getcwd().'/include/common.php';
-require_once CWD.'include/parseXML.php';
+
+try {
+	require_once CWD.'include/parseXML.php';
+} catch (Exception $e) {
+	$session['errors'][] = $e->getMessage();
+}
 
 
 
@@ -24,6 +29,9 @@ $content = (new Template('home'))
 			->set('cvrows',$cvrows)
 			->parse()
 			->content;
+
+
+
 
 $tpl = (new Template('main'))
 		->set('title','CV Processor')
